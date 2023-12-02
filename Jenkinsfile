@@ -16,6 +16,24 @@ pipeline {
                 '''
             }
         }
+
+        stage('Build') {
+            steps {
+                echo 'Docker.'
+                sh '''docker compose build'''
+                
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
 }
 
