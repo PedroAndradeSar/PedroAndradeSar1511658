@@ -20,7 +20,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Docker.'
-                sh '''docker compose build'''
+                sh '''
+                    docker-compose build
+                '''
                 
             }
         }
