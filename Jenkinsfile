@@ -19,7 +19,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                docker --version
+                //docker --version
                 sh '''
                     docker-compose build
                 '''
@@ -29,6 +29,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+
+                sh'npm install'
+                sh'npm test'
             }
         }
         stage('Deploy') {
