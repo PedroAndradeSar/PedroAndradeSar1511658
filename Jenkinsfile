@@ -2,21 +2,18 @@ pipeline {
     agent any
     tools{nodejs 'nodejs'}
     stages {
-        stage('Build') {
+        stage('Start NodeGoat') {
             steps {
-                echo 'Docker.'
-                sh '''docker compose build'''
-                
+                sh '''
+                        npm install
+                '''
             }
         }
-        stage('Test') {
+        stage('Test NPM') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh '''
+                    npm test
+                '''
             }
         }
     }
